@@ -210,12 +210,13 @@ a {
 
 .btn-primary {
   background: var(--accent);
-  color: #001412;
+  color: #000000;
   box-shadow: 0 .75rem 2rem rgba(20, 184, 166, .16);
 }
 
 .btn-primary:hover {
-  background: var(--accent-light);
+  background: var(--accent-dark);
+  color: #ffffff;
   box-shadow: 0 1rem 2.5rem rgba(20, 184, 166, .24);
 }
 
