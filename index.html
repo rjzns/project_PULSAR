@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="PULSAR — свет, звук и техническое обеспечение концертных площадок. Аренда, продажа, обслуживание и специалисты для шоу.">
+  <meta name="description" content="PULSAR — световое, звуковое и визуальное оборудование для концертов и мероприятий. Аренда, продажа, обслуживание и специалисты для шоу.">
   <meta name="theme-color" content="#070b10">
-  <meta property="og:title" content="PULSAR — свет, звук, сцена">
-  <meta property="og:description" content="Свет, звук и техническое обеспечение концертных площадок. Аренда, продажа, обслуживание и специалисты для шоу.">
+  <meta property="og:title" content="PULSAR — свет, звук, визуальные решения">
+  <meta property="og:description" content="Световое, звуковое и визуальное оборудование для концертных площадок. Аренда, продажа, обслуживание и специалисты для шоу.">
   <meta property="og:type" content="website">
-  <title>PULSAR — мы знаем как сделать ваш звук лучше</title>
+  <title>PULSAR — свет, звук и визуальное оборудование для сцены</title>
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314b8a6'/%3E%3Cpath d='M18 4 8 18h6l-2 10 10-14h-6z' fill='%2306110f'/%3E%3C/svg%3E">
 
@@ -17,1598 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* =========================================================
-       PULSAR — концертное оборудование
-       Один HTML-файл / HTML + CSS + минимальный JS
-       ========================================================= */
-
-    :root {
-      --bg: #070b10;
-      --bg-soft: #0d141b;
-      --bg-card: #111a22;
-      --bg-light: #f2f6f6;
-      --text: #f4f8f8;
-      --text-dark: #101719;
-      --muted: #8c9ba1;
-      --muted-dark: #607075;
-      --line: rgba(255,255,255,.09);
-      --line-dark: rgba(12,25,29,.12);
-
-      --accent: #14b8a6;
-      --accent-light: #2dd4bf;
-      --accent-dark: #0f766e;
-
-      --blue: #38bdf8;
-      --purple: #8b5cf6;
-      --pink: #f472b6;
-
-      --radius-sm: .75rem;
-      --radius: 1.25rem;
-      --radius-lg: 1.75rem;
-      --container: 1180px;
-
-      --shadow: 0 1.5rem 4rem rgba(0,0,0,.24);
-      --transition: 220ms ease;
-      --ease-out: cubic-bezier(.16, 1, .3, 1);
-
-      --font-main: 'Space Grotesk', Inter, ui-sans-serif, system-ui,
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    /* =========================================================
-       RESET
-       ========================================================= */
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5.5rem;
-    }
-
-    body {
-      margin: 0;
-      min-width: 320px;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--accent-light);
-      outline-offset: 4px;
-    }
-
-    ::selection {
-      background: var(--accent);
-      color: #00110f;
-    }
-
-    ::-webkit-scrollbar {
-      width: .65rem;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #1c2a31;
-      border-radius: 99px;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    /* =========================================================
-       UTILITIES
-       ========================================================= */
-
-    .container {
-      width: min(calc(100% - 2rem), var(--container));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 5.5rem 0;
-      position: relative;
-    }
-
-    .section--light {
-      background: var(--bg-light);
-      color: var(--text-dark);
-    }
-
-    .section--light .section-label {
-      color: var(--accent-dark);
-    }
-
-    .section--light .section-heading {
-      color: #091114;
-    }
-
-    .section--light .section-intro {
-      color: var(--muted-dark);
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      margin-bottom: 1rem;
-      color: var(--accent-light);
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .section-label::before {
-      content: "";
-      width: 1.7rem;
-      height: 1px;
-      background: currentColor;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin: 0 0 1rem;
-      font-size: clamp(2rem, 6vw, 4rem);
-      line-height: .98;
-      letter-spacing: -.045em;
-      text-wrap: balance;
-    }
-
-    .section-intro {
-      max-width: 680px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      min-height: 3.35rem;
-      align-items: center;
-      justify-content: center;
-      gap: .6rem;
-      padding: .75rem 1.25rem;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      font-size: .92rem;
-      font-weight: 700;
-      line-height: 1;
-      cursor: pointer;
-      white-space: nowrap;
-      transition:
-        transform var(--transition),
-        background var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn:active {
-      transform: translateY(0) scale(.97);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #001412;
-      box-shadow: 0 .75rem 2rem rgba(20,184,166,.18);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-light);
-      box-shadow: 0 1rem 2.5rem rgba(20,184,166,.28);
-    }
-
-    .btn-secondary {
-      border-color: rgba(255,255,255,.15);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(45,212,191,.5);
-      background: rgba(20,184,166,.08);
-    }
-
-    /* Плавное появление блоков при скролле */
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(26px);
-      transition:
-        opacity .7s var(--ease-out),
-        transform .7s var(--ease-out);
-      transition-delay: var(--reveal-delay, 0s);
-    }
-
-    [data-reveal].is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    .skip-link {
-      position: fixed;
-      left: 1rem;
-      top: -4rem;
-      z-index: 200;
-      padding: .7rem 1.2rem;
-      border-radius: .6rem;
-      background: var(--accent);
-      color: #001412;
-      font-weight: 700;
-      transition: top var(--transition);
-    }
-
-    .skip-link:focus {
-      top: 1rem;
-    }
-
-    /* =========================================================
-       HEADER / NAV
-       ========================================================= */
-
-    .site-header {
-      position: fixed;
-      z-index: 100;
-      inset: 0 0 auto;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      background: rgba(7,11,16,.78);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      transition: background var(--transition), box-shadow var(--transition);
-    }
-
-    .site-header.is-scrolled {
-      background: rgba(7,11,16,.92);
-      box-shadow: 0 .5rem 2rem rgba(0,0,0,.3);
-    }
-
-    .nav {
-      min-height: 4.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: .7rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-    }
-
-    .logo-mark {
-      width: 2rem;
-      height: 2rem;
-      position: relative;
-      overflow: hidden;
-      border-radius: .6rem;
-      background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
-      box-shadow: 0 0 1.5rem rgba(20,184,166,.3);
-    }
-
-    .logo-mark::before,
-    .logo-mark::after {
-      content: "";
-      position: absolute;
-      background: #06110f;
-      transform: skewX(-25deg);
-    }
-
-    .logo-mark::before {
-      width: .35rem;
-      height: 1.6rem;
-      left: .55rem;
-      top: .2rem;
-    }
-
-    .logo-mark::after {
-      width: .35rem;
-      height: 1.6rem;
-      right: .55rem;
-      top: .2rem;
-    }
-
-    .nav-burger {
-      width: 2.9rem;
-      height: 2.9rem;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: .8rem;
-      background: transparent;
-      cursor: pointer;
-      color: var(--text);
-    }
-
-    .hamburger {
-      width: 1.2rem;
-      height: .85rem;
-      position: relative;
-    }
-
-    .hamburger span,
-    .hamburger::before,
-    .hamburger::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      border-radius: 2px;
-      background: currentColor;
-      transition: var(--transition);
-    }
-
-    .hamburger::before { top: 0; }
-    .hamburger span { top: .4rem; }
-    .hamburger::after { bottom: 0; }
-
-    .site-header.menu-open .hamburger::before {
-      transform: translateY(.4rem) rotate(45deg);
-    }
-
-    .site-header.menu-open .hamburger span {
-      opacity: 0;
-    }
-
-    .site-header.menu-open .hamburger::after {
-      transform: translateY(-.4rem) rotate(-45deg);
-    }
-
-    .nav-menu {
-      position: absolute;
-      top: calc(100% + .6rem);
-      left: 1rem;
-      right: 1rem;
-      padding: .75rem;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: rgba(10,16,22,.98);
-      box-shadow: var(--shadow);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition:
-        opacity var(--transition),
-        transform var(--transition),
-        visibility var(--transition);
-    }
-
-    .site-header.menu-open .nav-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-    }
-
-    .nav-menu a {
-      padding: .85rem 1rem;
-      border-radius: .65rem;
-      color: #b9c5c9;
-      font-size: .9rem;
-      font-weight: 600;
-    }
-
-    .nav-menu a:hover {
-      background: rgba(20,184,166,.08);
-      color: white;
-    }
-
-    .nav-menu .btn {
-      margin-top: .5rem;
-      min-height: 2.9rem;
-      padding: .6rem 1.1rem;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    /* =========================================================
-       HERO
-       ========================================================= */
-
-    .hero {
-      min-height: 100vh;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      padding: 7.5rem 0 4rem;
-      background:
-        radial-gradient(circle at 80% 25%, rgba(20,184,166,.15), transparent 27rem),
-        radial-gradient(circle at 20% 85%, rgba(56,189,248,.08), transparent 24rem),
-        #070b10;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: -2;
-      inset: 0;
-      opacity: .35;
-      background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 4rem 4rem;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 35rem;
-      height: 35rem;
-      right: -15rem;
-      top: 15%;
-      border-radius: 50%;
-      background: rgba(20,184,166,.1);
-      filter: blur(70px);
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .65rem;
-      margin-bottom: 1.2rem;
-      color: var(--accent-light);
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-    }
-
-    .status-dot {
-      width: .45rem;
-      height: .45rem;
-      border-radius: 50%;
-      background: var(--accent-light);
-      box-shadow: 0 0 .9rem var(--accent);
-      animation: pulse-dot 2.4s ease-in-out infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .35; }
-    }
-
-    .hero h1 {
-      max-width: 850px;
-      margin: 0;
-      font-size: clamp(3.2rem, 13vw, 8.7rem);
-      line-height: .84;
-      letter-spacing: -.07em;
-      font-weight: 700;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(100deg, var(--accent-light), var(--blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
-
-    @supports not (background-clip: text) {
-      .hero h1 span {
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: var(--accent-light);
-      }
-    }
-
-    .hero-copy {
-      max-width: 650px;
-      margin: 1.6rem 0 0;
-      color: #a8b6bb;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-      margin-top: 2rem;
-    }
-
-    /* Stage visual */
-    .stage-visual {
-      min-height: 22rem;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.03), transparent),
-        #080d12;
-      box-shadow: var(--shadow);
-    }
-
-    .stage-visual::before {
-      content: "";
-      position: absolute;
-      inset: auto 7% 8% 7%;
-      height: 1px;
-      background: rgba(255,255,255,.2);
-      box-shadow: 0 0 1rem rgba(255,255,255,.2);
-    }
-
-    .beam {
-      position: absolute;
-      width: 11%;
-      height: 125%;
-      top: -18%;
-      left: 50%;
-      transform-origin: bottom center;
-      clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
-      filter: blur(4px);
-      opacity: .55;
-      background: linear-gradient(
-        180deg,
-        rgba(45,212,191,.85),
-        rgba(20,184,166,.02)
-      );
-      animation: beam-flicker 6s ease-in-out infinite;
-    }
-
-    .beam.one { transform: rotate(-27deg); }
-    .beam.two {
-      transform: rotate(-11deg);
-      opacity: .38;
-      background: linear-gradient(180deg, #38bdf8, transparent);
-      animation-delay: .8s;
-    }
-    .beam.three {
-      transform: rotate(12deg);
-      opacity: .42;
-      background: linear-gradient(180deg, #8b5cf6, transparent);
-      animation-delay: 1.6s;
-    }
-    .beam.four {
-      transform: rotate(28deg);
-      opacity: .32;
-      background: linear-gradient(180deg, #f472b6, transparent);
-      animation-delay: 2.4s;
-    }
-
-    @keyframes beam-flicker {
-      0%, 100% { opacity: var(--o, .5); }
-      50% { opacity: calc(var(--o, .5) * .45); }
-    }
-
-    .led-wall {
-      position: absolute;
-      left: 19%;
-      right: 19%;
-      bottom: 15%;
-      height: 27%;
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      gap: 2px;
-      padding: .3rem;
-      border: 1px solid rgba(255,255,255,.14);
-      background: #020507;
-      box-shadow: 0 0 3rem rgba(20,184,166,.15);
-    }
-
-    .led-wall span {
-      background:
-        radial-gradient(circle at 50% 40%, rgba(45,212,191,.8), transparent 40%),
-        #071315;
-      opacity: .75;
-    }
-
-    .speaker {
-      position: absolute;
-      bottom: 10%;
-      width: 15%;
-      aspect-ratio: .7;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: .5rem;
-      background: linear-gradient(135deg, #1a242b, #080c10);
-      box-shadow: 0 .7rem 1.5rem rgba(0,0,0,.5);
-    }
-
-    .speaker::before,
-    .speaker::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: #05080a;
-      border: 1px solid rgba(255,255,255,.1);
-    }
-
-    .speaker::before {
-      width: 42%;
-      aspect-ratio: 1;
-      top: 18%;
-    }
-
-    .speaker::after {
-      width: 66%;
-      aspect-ratio: 1;
-      bottom: 13%;
-      box-shadow: inset 0 0 0 .2rem rgba(255,255,255,.02);
-    }
-
-    .speaker.left { left: 5%; }
-    .speaker.right { right: 5%; }
-
-    .visual-tag {
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-      padding: .45rem .65rem;
-      border: 1px solid rgba(45,212,191,.25);
-      border-radius: 999px;
-      background: rgba(7,11,16,.6);
-      color: var(--accent-light);
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      backdrop-filter: blur(10px);
-    }
-
-    /* Бегущая строка */
-    .ticker {
-      overflow: hidden;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #0a1016;
-      padding: 1.05rem 0;
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: ticker 32s linear infinite;
-    }
-
-    .ticker-group {
-      display: flex;
-      align-items: center;
-      gap: 2.6rem;
-      padding-right: 2.6rem;
-      white-space: nowrap;
-    }
-
-    .ticker-group span {
-      color: #9fb2b7;
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .ticker-group b {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    @keyframes ticker {
-      to { transform: translateX(-50%); }
-    }
-
-    /* =========================================================
-       ABOUT
-       ========================================================= */
-
-    .about-grid {
-      display: grid;
-      gap: 3rem;
-    }
-
-    .about-text {
-      max-width: 650px;
-      color: #526267;
-      font-size: 1.05rem;
-    }
-
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: .8rem;
-      margin-top: 2rem;
-    }
-
-    .fact {
-      padding: 1.2rem;
-      border: 1px solid var(--line-dark);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.65);
-    }
-
-    .fact strong {
-      display: block;
-      color: #0b1518;
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      line-height: 1;
-      letter-spacing: -.05em;
-    }
-
-    .fact span {
-      display: block;
-      margin-top: .5rem;
-      color: #718085;
-      font-size: .82rem;
-    }
-
-    .about-panel {
-      position: relative;
-      min-height: 25rem;
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(135deg, rgba(20,184,166,.1), transparent 50%),
-        #0b1217;
-      box-shadow: 0 2rem 5rem rgba(8,20,25,.12);
-    }
-
-    .about-panel::before {
-      content: "";
-      position: absolute;
-      inset: 15%;
-      border: 1px solid rgba(45,212,191,.2);
-      transform: rotate(45deg);
-      box-shadow:
-        0 0 5rem rgba(20,184,166,.12),
-        inset 0 0 5rem rgba(20,184,166,.05);
-    }
-
-    .about-panel::after {
-      content: "PULSAR";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      color: rgba(255,255,255,.04);
-      font-size: clamp(3rem, 10vw, 7rem);
-      font-weight: 700;
-      letter-spacing: -.08em;
-    }
-
-    /* =========================================================
-       ADVANTAGES
-       ========================================================= */
-
-    .card-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2.5rem;
-    }
-
-    .advantage-card {
-      position: relative;
-      min-height: 15rem;
-      padding: 1.5rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, #111a22, #0b1117);
-      transition:
-        transform var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition);
-    }
-
-    .advantage-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(45,212,191,.35);
-      box-shadow: 0 1.5rem 3rem rgba(0,0,0,.25);
-    }
-
-    .card-number {
-      color: var(--accent);
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-    }
-
-    .advantage-card h3 {
-      margin: 3rem 0 .6rem;
-      font-size: 1.3rem;
-      letter-spacing: -.025em;
-    }
-
-    .advantage-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .card-glow {
-      position: absolute;
-      width: 8rem;
-      height: 8rem;
-      right: -3rem;
-      bottom: -4rem;
-      border-radius: 50%;
-      background: rgba(20,184,166,.14);
-      filter: blur(20px);
-      transition: opacity var(--transition), transform var(--transition);
-    }
-
-    .advantage-card:hover .card-glow {
-      transform: scale(1.35);
-    }
-
-    /* =========================================================
-       SERVICES
-       ========================================================= */
-
-    .services {
-      background: #0b1218;
-    }
-
-    .services-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2.5rem;
-    }
-
-    .service {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding: 1.25rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.025);
-      transition: var(--transition);
-    }
-
-    .service:hover {
-      background: rgba(20,184,166,.05);
-      border-color: rgba(45,212,191,.3);
-      transform: translateY(-3px);
-    }
-
-    .service-icon {
-      width: 3rem;
-      height: 3rem;
-      display: grid;
-      place-items: center;
-      border-radius: .9rem;
-      background: rgba(20,184,166,.1);
-      color: var(--accent-light);
-    }
-
-    .service-icon svg {
-      width: 1.35rem;
-      height: 1.35rem;
-    }
-
-    .service h3 {
-      margin: .1rem 0 .35rem;
-      font-size: 1.1rem;
-    }
-
-    .service p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .86rem;
-    }
-
-    /* =========================================================
-       EQUIPMENT
-       ========================================================= */
-
-    .equipment-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: .8rem;
-      margin-top: 2.5rem;
-    }
-
-    .equipment-card {
-      min-height: 13rem;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.1rem;
-      overflow: hidden;
-      border: 1px solid var(--line-dark);
-      border-radius: var(--radius);
-      background: #e5eded;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .equipment-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 1.5rem 3rem rgba(12,25,29,.1);
-    }
-
-    .equipment-visual {
-      position: absolute;
-      inset: 0;
-      opacity: .9;
-      background:
-        radial-gradient(circle at 50% 25%, rgba(20,184,166,.45), transparent 27%),
-        linear-gradient(135deg, #18272b, #061014);
-      transition: opacity var(--transition);
-    }
-
-    .equipment-card:hover .equipment-visual {
-      opacity: 1;
-    }
-
-    .equipment-card:nth-child(2) .equipment-visual {
-      background:
-        linear-gradient(125deg, transparent 40%, rgba(45,212,191,.55), transparent 41%),
-        linear-gradient(55deg, transparent 40%, rgba(56,189,248,.4), transparent 41%),
-        #071015;
-    }
-
-    .equipment-card:nth-child(3) .equipment-visual {
-      background:
-        radial-gradient(circle at 25% 30%, #8b5cf6 0, transparent 20%),
-        radial-gradient(circle at 75% 60%, #f472b6 0, transparent 20%),
-        #11101b;
-    }
-
-    .equipment-card:nth-child(4) .equipment-visual {
-      background:
-        radial-gradient(ellipse at 30% 45%, rgba(255,255,255,.2), transparent 14%),
-        radial-gradient(ellipse at 70% 45%, rgba(255,255,255,.18), transparent 14%),
-        #10171b;
-    }
-
-    .equipment-card:nth-child(5) .equipment-visual {
-      background:
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 1.2rem,
-          rgba(45,212,191,.12) 1.2rem 1.25rem
-        ),
-        #091418;
-    }
-
-    .equipment-card:nth-child(6) .equipment-visual {
-      background:
-        radial-gradient(circle at 42% 58%, rgba(244,114,182,.45), transparent 26%),
-        radial-gradient(circle at 68% 28%, rgba(45,212,191,.5), transparent 32%),
-        repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255,255,255,.05) 8deg, transparent 16deg),
-        #0a1418;
-    }
-
-    .equipment-card::after {
-      content: "";
-      position: absolute;
-      inset: 50% 0 0;
-      background: linear-gradient(transparent, rgba(4,8,10,.9));
-    }
-
-    .equipment-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-    }
-
-    .equipment-content h3 {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .equipment-content span {
-      color: #a9bbbf;
-      font-size: .72rem;
-    }
-
-    /* =========================================================
-       PROJECTS / CASES
-       ========================================================= */
-
-    .projects {
-      background: var(--bg);
-    }
-
-    .projects-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2.5rem;
-    }
-
-    .project {
-      min-height: 22rem;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      padding: 1.4rem;
-      border-radius: var(--radius-lg);
-      background: #10171d;
-      border: 1px solid var(--line);
-    }
-
-    .project-bg {
-      position: absolute;
-      inset: 0;
-      transition: transform .5s ease;
-    }
-
-    .project:hover .project-bg {
-      transform: scale(1.06);
-    }
-
-    .project:nth-child(1) .project-bg {
-      background:
-        linear-gradient(180deg, transparent 25%, rgba(4,7,10,.95)),
-        radial-gradient(ellipse at 50% 15%, rgba(45,212,191,.65), transparent 32%),
-        linear-gradient(110deg, rgba(56,189,248,.3), transparent 45%),
-        #091216;
-    }
-
-    .project:nth-child(2) .project-bg {
-      background:
-        linear-gradient(180deg, transparent 20%, rgba(4,7,10,.95)),
-        radial-gradient(circle at 25% 25%, rgba(139,92,246,.65), transparent 20%),
-        radial-gradient(circle at 75% 30%, rgba(244,114,182,.5), transparent 22%),
-        #110e18;
-    }
-
-    .project:nth-child(3) .project-bg {
-      background:
-        linear-gradient(180deg, transparent 20%, rgba(4,7,10,.95)),
-        repeating-linear-gradient(90deg, rgba(45,212,191,.08) 0 2px, transparent 2px 3rem),
-        radial-gradient(circle at 50% 35%, rgba(45,212,191,.4), transparent 35%),
-        #071215;
-    }
-
-    .project-info {
-      position: relative;
-      z-index: 2;
-    }
-
-    .project-type {
-      color: var(--accent-light);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .project h3 {
-      margin: .4rem 0 .3rem;
-      font-size: 1.35rem;
-    }
-
-    .project p {
-      margin: 0;
-      max-width: 38rem;
-      color: #a7b4b8;
-      font-size: .84rem;
-    }
-
-    .project-tag {
-      display: inline-block;
-      margin-top: .9rem;
-      padding: .3rem .8rem;
-      border: 1px solid rgba(45,212,191,.3);
-      border-radius: 999px;
-      background: rgba(20,184,166,.1);
-      color: var(--accent-light);
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    /* =========================================================
-       REVIEWS
-       ========================================================= */
-
-    .reviews {
-      background: #10181e;
-    }
-
-    .reviews-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2.5rem;
-    }
-
-    .review {
-      padding: 1.5rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.025);
-      transition: var(--transition);
-    }
-
-    .review:hover {
-      border-color: rgba(45,212,191,.25);
-    }
-
-    .stars {
-      color: var(--accent-light);
-      letter-spacing: .1em;
-      font-size: .85rem;
-    }
-
-    .review blockquote {
-      margin: 1.2rem 0 1.5rem;
-      color: #dbe4e6;
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-    }
-
-    .avatar {
-      width: 2.5rem;
-      height: 2.5rem;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(20,184,166,.12);
-      color: var(--accent-light);
-      font-size: .75rem;
-      font-weight: 700;
-    }
-
-    .review-author strong {
-      display: block;
-      font-size: .82rem;
-    }
-
-    .review-author span {
-      display: block;
-      color: var(--muted);
-      font-size: .72rem;
-    }
-
-    /* =========================================================
-       CONTACTS
-       ========================================================= */
-
-    .contacts {
-      background: var(--accent);
-      color: #031311;
-    }
-
-    .contacts .section-label {
-      color: #064f49;
-    }
-
-    .contacts .section-heading {
-      color: #031311;
-    }
-
-    .contacts .section-intro {
-      color: rgba(3,19,17,.72);
-    }
-
-    .contact-grid {
-      display: grid;
-      gap: 3rem;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: .8rem;
-      align-items: flex-start;
-    }
-
-    .contact-symbol {
-      flex: 0 0 auto;
-      width: 2.7rem;
-      height: 2.7rem;
-      display: grid;
-      place-items: center;
-      border-radius: .8rem;
-      background: rgba(0,0,0,.1);
-      font-weight: 700;
-    }
-
-    .contact-item span {
-      display: block;
-      color: rgba(3,19,17,.6);
-      font-size: .72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .contact-item a,
-    .contact-item strong {
-      display: block;
-      margin-top: .15rem;
-      font-size: .95rem;
-    }
-
-    .contact-form {
-      padding: 1.3rem;
-      border-radius: var(--radius-lg);
-      background: #07100f;
-      color: white;
-      box-shadow: 0 1.5rem 4rem rgba(0,0,0,.18);
-    }
-
-    .contact-form h3 {
-      margin: .2rem 0 .4rem;
-      font-size: 1.4rem;
-    }
-
-    .contact-form > p {
-      margin: 0 0 1.5rem;
-      color: #87989a;
-      font-size: .85rem;
-    }
-
-    .form-grid {
-      display: grid;
-      gap: .8rem;
-    }
-
-    .field {
-      display: grid;
-      gap: .4rem;
-    }
-
-    .field label {
-      color: #a7b5b7;
-      font-size: .72rem;
-      font-weight: 700;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      min-height: 3rem;
-      padding: .8rem .9rem;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: .75rem;
-      outline: none;
-      background: #101a1d;
-      color: white;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-
-    .field select {
-      color-scheme: dark;
-    }
-
-    .field textarea {
-      min-height: 7rem;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color: var(--accent-light);
-      box-shadow: 0 0 0 .2rem rgba(45,212,191,.1);
-    }
-
-    .contact-form .btn {
-      width: 100%;
-      margin-top: .25rem;
-    }
-
-    .form-status {
-      margin: .9rem 0 0;
-      color: var(--accent-light);
-      font-size: .85rem;
-      font-weight: 600;
-    }
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    .footer {
-      padding: 2rem 0;
-      background: #05080b;
-      color: #728186;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer .logo {
-      color: white;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .footer-links a {
-      font-size: .8rem;
-      font-weight: 600;
-      transition: color var(--transition);
-    }
-
-    .footer-links a:hover {
-      color: var(--accent-light);
-    }
-
-    .footer-copy {
-      font-size: .75rem;
-    }
-
-    /* =========================================================
-       TABLET (>= 640px)
-       ========================================================= */
-
-    @media (min-width: 640px) {
-      .container {
-        width: min(calc(100% - 3rem), var(--container));
-      }
-
-      .nav-burger {
-        display: none;
-      }
-
-      .nav-menu {
-        position: static;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-      }
-
-      .nav-menu a {
-        padding: .5rem .65rem;
-      }
-
-      .nav-menu .btn {
-        margin: 0 0 0 .5rem;
-      }
-
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr);
-      }
-
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .equipment-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .equipment-card:first-child,
-      .equipment-card:nth-child(6) {
-        grid-column: span 2;
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .project:first-child {
-        grid-column: span 2;
-      }
-
-      .reviews-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .contact-grid {
-        grid-template-columns: .9fr 1.1fr;
-        align-items: center;
-      }
-
-      .contact-form {
-        padding: 2rem;
-      }
-
-      .form-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .field:last-of-type,
-      .contact-form .btn {
-        grid-column: span 2;
-      }
-    }
-
-    /* =========================================================
-       DESKTOP (>= 960px)
-       ========================================================= */
-
-    @media (min-width: 960px) {
-      .section {
-        padding: 7rem 0;
-      }
-
-      .hero {
-        padding-top: 8rem;
-      }
-
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.05fr) minmax(25rem, .95fr);
-        gap: 5rem;
-      }
-
-      .stage-visual {
-        min-height: 34rem;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr .85fr;
-        align-items: center;
-        gap: 7rem;
-      }
-
-      .about-panel {
-        min-height: 32rem;
-      }
-
-      .card-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .service {
-        display: block;
-        min-height: 16rem;
-      }
-
-      .service h3 {
-        margin-top: 1.4rem;
-      }
-
-      .equipment-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .equipment-card {
-        min-height: 18rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1.2fr .8fr;
-      }
-
-      .project {
-        min-height: 25rem;
-      }
-
-      .project:first-child {
-        grid-row: span 2;
-        grid-column: auto;
-        min-height: 51rem;
-      }
-
-      .project:nth-child(2),
-      .project:nth-child(3) {
-        min-height: 25rem;
-      }
-    }
-
-    /* =========================================================
-       REDUCED MOTION
-       ========================================================= */
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-
-      .ticker-track {
-        animation: none;
-      }
-
-      [data-reveal] {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+  <!-- Стили проекта -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -1665,12 +75,12 @@
         <div data-reveal>
           <div class="eyebrow">
             <span class="status-dot" aria-hidden="true"></span>
-            Свет · Звук · Шоу
+            Свет · Звук · Визуал
           </div>
 
           <h1>
-            ЭНЕРГИЯ<br>
-            <span>СЦЕНЫ.</span>
+            СВЕТ. ЗВУК.<br>
+            <span>ВИЗУАЛ.</span>
           </h1>
 
           <p class="hero-copy">
@@ -1694,10 +104,10 @@
         <div class="stage-visual" data-reveal style="--reveal-delay:.15s" aria-label="Декоративная визуализация концертной сцены">
           <span class="visual-tag">LIVE PRODUCTION</span>
 
-          <span class="beam one" style="--o:.55"></span>
-          <span class="beam two" style="--o:.38"></span>
-          <span class="beam three" style="--o:.42"></span>
-          <span class="beam four" style="--o:.32"></span>
+          <span class="beam one" style="--o:.4"></span>
+          <span class="beam two" style="--o:.28"></span>
+          <span class="beam three" style="--o:.3"></span>
+          <span class="beam four" style="--o:.22"></span>
 
           <div class="speaker left" aria-hidden="true"></div>
           <div class="speaker right" aria-hidden="true"></div>
@@ -1717,17 +127,17 @@
     <div class="ticker" role="presentation">
       <div class="ticker-track">
         <div class="ticker-group">
-          <span>Свет</span><b>·</b><span>Звук</span><b>·</b><span>Шоу</span><b>·</b>
+          <span>Свет</span><b>·</b><span>Звук</span><b>·</b><span>Визуал</span><b>·</b>
           <span>LED-системы</span><b>·</b><span>Лазеры</span><b>·</b><span>Акустика</span><b>·</b>
           <span>Контроллеры</span><b>·</b><span>Спецэффекты</span><b>·</b>
         </div>
         <div class="ticker-group" aria-hidden="true">
-          <span>Свет</span><b>·</b><span>Звук</span><b>·</b><span>Шоу</span><b>·</b>
+          <span>Свет</span><b>·</b><span>Звук</span><b>·</b><span>Визуал</span><b>·</b>
           <span>LED-системы</span><b>·</b><span>Лазеры</span><b>·</b><span>Акустика</span><b>·</b>
           <span>Контроллеры</span><b>·</b><span>Спецэффекты</span><b>·</b>
         </div>
       </div>
-      <p class="visually-hidden">Свет, звук, шоу: LED-системы, лазеры, акустика, контроллеры и спецэффекты.</p>
+      <p class="visually-hidden">Свет, звук, визуал: LED-системы, лазеры, акустика, контроллеры и спецэффекты.</p>
     </div>
 
     <!-- =====================================================
@@ -1752,9 +162,9 @@
           </p>
 
           <p class="about-text">
-            PULSAR объединяет оборудование, техническую экспертизу и
-            специалистов в одной команде — чтобы площадка получала не набор
-            устройств, а готовую работающую систему.
+            PULSAR объединяет световое, звуковое и визуальное оборудование,
+            техническую экспертизу и специалистов в одной команде — чтобы
+            площадка получала не набор устройств, а готовую работающую систему.
           </p>
 
           <div class="facts">
@@ -1949,8 +359,8 @@
         <div class="section-label" data-reveal>Каталог</div>
 
         <h2 class="section-heading" data-reveal>
-          Всё необходимое<br>
-          для большого звука и света.
+          Оборудование<br>
+          для света, звука и видео.
         </h2>
 
         <p class="section-intro" data-reveal>
@@ -1961,50 +371,92 @@
         <div class="equipment-grid">
 
           <article class="equipment-card" data-reveal>
-            <div class="equipment-visual" aria-hidden="true"></div>
+            <img
+              src="images/LED-system.jpg"
+              alt="Светодиодный экран и пиксельная видео-поверхность LED-системы PULSAR"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
             <div class="equipment-content">
               <span>01 — VISUAL</span>
               <h3>LED-системы</h3>
+              <p>Светодиодные экраны, пиксельные завесы и видеостены для сцен любого масштаба.</p>
             </div>
           </article>
 
           <article class="equipment-card" data-reveal>
-            <div class="equipment-visual" aria-hidden="true"></div>
+            <img
+              src="images/lazers.jpg"
+              alt="Лазерная установка PULSAR с яркими лучами на сцене"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
             <div class="equipment-content">
               <span>02 — LIGHT</span>
               <h3>Лазеры</h3>
+              <p>RGB-лазеры и проекционные лазерные шоу для объёмной световой картины.</p>
             </div>
           </article>
 
           <article class="equipment-card" data-reveal>
-            <div class="equipment-visual" aria-hidden="true"></div>
+            <img
+              src="images/gobo.jpg"
+              alt="Гобо-проектор PULSAR, проецирующий световой узор"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
             <div class="equipment-content">
               <span>03 — PROJECTION</span>
               <h3>Гобо-проекторы</h3>
+              <p>Проекция логотипов, текстур и динамических изображений на сцену и плоскости.</p>
             </div>
           </article>
 
           <article class="equipment-card" data-reveal>
-            <div class="equipment-visual" aria-hidden="true"></div>
+            <img
+              src="images/aqustic_system.jpg"
+              alt="Акустическая система PULSAR с динамиками и сабвуферами"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
             <div class="equipment-content">
               <span>04 — AUDIO</span>
               <h3>Акустические системы</h3>
+              <p>Линейные массивы, сабвуферы и сценические мониторы для чистого звука.</p>
             </div>
           </article>
 
           <article class="equipment-card" data-reveal>
-            <div class="equipment-visual" aria-hidden="true"></div>
+            <img
+              src="images/controls.jpg"
+              alt="Контроллеры и пульты управления светом и звуком PULSAR"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
             <div class="equipment-content">
               <span>05 — CONTROL</span>
               <h3>Контроллеры</h3>
+              <p>DMX-пульты, медиасерверы и системы управления светом, звуком и видео.</p>
             </div>
           </article>
 
           <article class="equipment-card" data-reveal>
-            <div class="equipment-visual" aria-hidden="true"></div>
+            <img
+              src="images/special_effects.jpg"
+              alt="Спецэффекты PULSAR: дым, конфетти и пиротехника на сцене"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
             <div class="equipment-content">
               <span>06 — FX</span>
               <h3>Спецэффекты</h3>
+              <p>Дым-машины, хейзеры, конфетти и пиротехника для ярких акцентов шоу.</p>
             </div>
           </article>
 
@@ -2299,88 +751,14 @@
       </nav>
 
       <p class="footer-copy">
-        © 2026 PULSAR. Свет · Звук · Технический продакшен.
+        © 2026 PULSAR. Свет · Звук · Визуальные решения.
       </p>
 
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var header = document.getElementById('header');
-      var burger = document.getElementById('nav-burger');
-      var menu = document.getElementById('nav-menu');
-      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      function closeMenu() {
-        if (!header || !burger) return;
-        burger.setAttribute('aria-expanded', 'false');
-        burger.setAttribute('aria-label', 'Открыть меню');
-        header.classList.remove('menu-open');
-        document.body.classList.remove('menu-open');
-      }
-
-      if (burger && menu) {
-        burger.addEventListener('click', function () {
-          var open = burger.getAttribute('aria-expanded') === 'true';
-          burger.setAttribute('aria-expanded', String(!open));
-          burger.setAttribute('aria-label', open ? 'Открыть меню' : 'Закрыть меню');
-          header.classList.toggle('menu-open', !open);
-          document.body.classList.toggle('menu-open', !open);
-        });
-
-        menu.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', closeMenu);
-        });
-
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') closeMenu();
-        });
-      }
-
-      // Состояние шапки при скролле
-      var onScroll = function () {
-        if (header) header.classList.toggle('is-scrolled', window.scrollY > 8);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-
-      // Плавное появление секций
-      var revealItems = document.querySelectorAll('[data-reveal]');
-
-      function showAll() {
-        revealItems.forEach(function (el) { el.classList.add('is-visible'); });
-      }
-
-      if (reduceMotion || !('IntersectionObserver' in window)) {
-        showAll();
-      } else {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-        revealItems.forEach(function (el) { io.observe(el); });
-      }
-
-      // Демо-отправка формы
-      var form = document.getElementById('contact-form');
-      var status = document.getElementById('form-status');
-      if (form && status) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          status.textContent = 'Спасибо! Заявка принята — мы свяжемся с вами в ближайшее время.';
-          status.hidden = false;
-          form.reset();
-          setTimeout(function () { status.hidden = true; }, 8000);
-        });
-      }
-    })();
-  </script>
+  <!-- Скрипт проекта -->
+  <script src="js/script.js"></script>
 
 </body>
 </html>
