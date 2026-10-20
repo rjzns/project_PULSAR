@@ -1,0 +1,21 @@
+{
+  "name": "project-pulsar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PULSAR — свет, звук и визуальное оборудование для сцены",
+  "scripts": {
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:html": "html-validate \"*.html\"",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:js": "eslint \"js/**/*.js\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
+    "html-validate": "^9.1.2",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^37.0.0"
+  }
+}

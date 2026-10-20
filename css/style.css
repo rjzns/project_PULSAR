@@ -1373,7 +1373,7 @@ body.menu-open {
    TABLET (>= 640px)
    ========================================================= */
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .container {
     width: min(calc(100% - 3rem), var(--container));
   }
@@ -1459,7 +1459,7 @@ body.menu-open {
    DESKTOP (>= 960px)
    ========================================================= */
 
-@media (min-width: 960px) {
+@media (width >= 960px) {
   .section {
     padding: 7rem 0;
   }
